@@ -52,7 +52,7 @@ class Test(unittest.TestCase):
         ([], [0], [0]),
     ]
     functions = [mergeTwoList]
-    def test_two_sum(self):
+    def test_two_sorted_list(self):
         for function in self.functions:
             for arr1, arr2, expected in self.test_cases:
                 list1 = LinkedList()
