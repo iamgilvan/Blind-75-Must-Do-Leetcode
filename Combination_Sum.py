@@ -18,6 +18,19 @@ def combination_sum(arr, target):
     backtrack(0, target, [])
     return result
 
+#O(n * target)
+def combination_sum_with_combinations(arr, target):
+    dp = [[] for _ in range(target + 1)]
+    dp[0].append([])  # Inicialização: Uma combinação vazia para obter zero.
+
+    for num in arr:
+        for i in range(num, target + 1):
+            for prev_combination in dp[i - num]:
+                new_combination = prev_combination + [num]
+                dp[i].append(new_combination)
+
+    return dp[target]
+
 class Test(unittest.TestCase):
     test_cases = [
         ([2,3,5], 8, [[2,2,2,2],[2,3,3],[3,5]]),
@@ -25,7 +38,7 @@ class Test(unittest.TestCase):
         ([2,3,6,7], 7, [[2,2,3],[7]]),
         ([2,3], 5, [[2,3]]),
     ]
-    functions = [combination_sum]
+    functions = [combination_sum, combination_sum_with_combinations]
     def test_combination_sum(self):
         for function in self.functions:
             for arr, target, expected in self.test_cases:
