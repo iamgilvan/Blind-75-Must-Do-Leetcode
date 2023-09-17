@@ -27,7 +27,7 @@ class Test(unittest.TestCase):
         ([-1], -1),
     ]
     functions = [maximum_subarray]
-    def test_group_anagram(self):
+    def test_maximum_subarray(self):
         for function in self.functions:
             for arr, expected in self.test_cases:
                 result = function(arr)
