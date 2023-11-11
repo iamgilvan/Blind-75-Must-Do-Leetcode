@@ -37,6 +37,8 @@ class BinarySearchTree:
                     return
                 current_node = current_node.right
 
+# O(n) time
+# O(h) space
 def is_binary_search_tree(root):
     def is_bst(node, min_value=float('-inf'), max_value=float('inf')):
         if not node:
