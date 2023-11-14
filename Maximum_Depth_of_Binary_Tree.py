@@ -29,7 +29,8 @@ class BinaryTree:
         else:
             raise Exception("A node cannot have more than two children")
         return new_node
-
+# O(n) time
+# O(h) space
 def binary_tree_max_depth(root):
     def get_max_depth(node, h):
         if not node:
