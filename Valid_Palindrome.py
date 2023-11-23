@@ -22,7 +22,7 @@ class Test(unittest.TestCase):
         (" ", True)
     ]
     functions = [valid_palindrome, isPalindrome]
-    def test_two_sum(self):
+    def test_valid_palindrome(self):
         for function in self.functions:
             for s, expected in self.test_cases:
                 result = function(s)
