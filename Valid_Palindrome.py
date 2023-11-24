@@ -1,5 +1,7 @@
 import unittest
 
+#TC: O(n)
+#TS : O(n)
 def isPalindrome(s: str) -> bool:
     s = ''.join([x.lower() for x in s if x.isalnum()])
     left, right = 0, len(s) - 1
