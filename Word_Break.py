@@ -1,5 +1,7 @@
 import unittest
 
+#TC: (n^2)
+#TS : O(n)
 def word_break(s, wordDict):
     wordDict = set(wordDict)
     n = len(s)
