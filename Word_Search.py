@@ -37,7 +37,7 @@ class Test(unittest.TestCase):
         ([["A","B","C","E"],["S","F","C","S"],["A","D","E","E"]],  "ABCB", False),
     ]
     functions = [word_search]
-    def test_climbing_stairs(self):
+    def test_word_search(self):
         for function in self.functions:
             for arr, word, expected in self.test_cases:
                 result = function(arr, word)
