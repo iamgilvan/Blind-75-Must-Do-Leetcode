@@ -22,7 +22,7 @@ def search_in_rotate_sorted_array(arr, target):
         if arr[middle] < target:
             left = middle + 1
         else:
-            right = middle - 1 
+            right = middle - 1
     return -1
 
 def find_rotation_point(arr):
