@@ -1,5 +1,5 @@
 import unittest
-#O(V^2 + VE),  V = numCourses E = prerequisites
+#TC O(V^2 + VE),  V = numCourses E = prerequisites
 def course_schedule(numCourses, prerequisites):
     graph = [[] for _ in range(numCourses)]  # graph
     visited = [0] * numCourses  # 0: not visited, 1: visiting, 2: visited
