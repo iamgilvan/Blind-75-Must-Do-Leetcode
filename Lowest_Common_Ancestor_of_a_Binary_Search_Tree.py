@@ -5,6 +5,8 @@
 #         self.left = None
 #         self.right = None
 
+#TC O(lon n)
+#TS O(1)
 class Solution:
     def lowestCommonAncestor(self, root: 'TreeNode', p: 'TreeNode', q: 'TreeNode') -> 'TreeNode':
         current = root
