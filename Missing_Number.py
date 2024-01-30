@@ -18,7 +18,7 @@ class Test(unittest.TestCase):
         ([9,6,4,2,3,5,7,0,1], 8)
     ]
     functions = [missingNumber]
-    def test_isAnagram(self):
+    def test_missingNumber(self):
         for function in self.functions:
             for n, expected in self.test_cases:
                 result = function(n)
