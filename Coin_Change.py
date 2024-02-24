@@ -1,7 +1,7 @@
 import unittest
 
 #TC O(amount * n)
-#TS O(1)
+#TS O(amount)
 def coinChange(coins, amount):
     dp = [float('inf')] * (amount + 1)
     dp[0] = 0
@@ -13,6 +13,28 @@ def coinChange(coins, amount):
 
     return dp[amount] if dp[amount] != float('inf') else -1
 
+def coinChange2(coins, amount):
+    memo = {}
+
+    def dp(amount):
+        if amount in memo:
+            return memo[amount]
+        if amount == 0:
+            return 0
+        if amount < 0:
+            return -1
+
+        min_coins = float('inf')
+        for coin in coins:
+            subproblem = dp(amount - coin)
+            if subproblem == -1:
+                continue
+            min_coins = min(min_coins, 1 + subproblem)
+
+        memo[amount] = min_coins if min_coins != float('inf') else -1
+        return memo[amount]
+
+    return dp(amount)
 
 class Test(unittest.TestCase):
     test_cases = [
@@ -20,7 +42,7 @@ class Test(unittest.TestCase):
         ([2], 3, -1),
         ([1], 0, 0)
     ]
-    functions = [coinChange]
+    functions = [coinChange, coinChange2]
     def test_coin_change(self):
         for function in self.functions:
             for arr, amount, expected in self.test_cases:
