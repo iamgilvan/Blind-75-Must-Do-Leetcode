@@ -8,9 +8,11 @@ def evaluate_Reverse_Polish_Notation(arr):
         if token == "+":
             stack.append(stack.pop() + stack.pop())
         elif token == "-":
-            stack.append(stack.pop() - stack.pop())
+            a, b = stack.pop(), stack.pop()
+            stack.append(b - a)
         elif token == "/":
-            stack.append(stack.pop() / stack.pop())
+            a, b = stack.pop(), stack.pop()
+            stack.append(int(b / a))
         elif token == "*":
             stack.append(stack.pop() * stack.pop())
         else:
