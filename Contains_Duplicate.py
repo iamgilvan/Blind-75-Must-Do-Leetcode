@@ -1,5 +1,7 @@
 import unittest
 
+# Given an integer array nums, return true if any value appears at least twice in the array, and return false if every element is distinct.
+
 #TC O(nlogn)
 #TS O(1)
 def contains_duplicates(arr):
