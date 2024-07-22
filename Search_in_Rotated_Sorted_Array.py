@@ -6,7 +6,7 @@ def search_in_rotate_sorted_array(arr, target):
     idx_rotation = find_rotation_point(arr)
     if arr[idx_rotation] == target:
         return idx_rotation
-    elif target <= arr[-1]:
+    elif target in arr[idx_rotation:]:
         right = len(arr) - 1
         left = idx_rotation
     else:
