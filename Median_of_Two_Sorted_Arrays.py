@@ -2,7 +2,7 @@ import unittest
 # Given two sorted arrays nums1 and nums2 of size m and n respectively, return the median of the two sorted arrays.
 
 # The overall run time complexity should be O(log (m+n)).
-#O(log(min((n+m)))
+#O(log min(n+m))
 def median_of_two_sorted_arrays(nums1, nums2):
         A, B = nums1, nums2
         total = len(nums1) + len(nums2)
