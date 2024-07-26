@@ -1,4 +1,5 @@
 import unittest
+# Given the head of a linked list, remove the nth node from the end of the list and return its head.
 
 # Definition for singly-linked list.
 class ListNode:
@@ -36,6 +37,8 @@ class LinkedList:
                 node = node.next
             return count
 
+# TC: O(n)
+# MC: O(1)
 def remove_node_n(head , n):
     # obter tamanho da lista
     curr_length = 0
@@ -62,7 +65,7 @@ class Test(unittest.TestCase):
         ([1,2], 1, [1], 1),
     ]
     functions = [remove_node_n]
-    def test_two_sum(self):
+    def test_remove_node_n(self):
         for function in self.functions:
             for arr, target, expected, length in self.test_cases:
                 head = LinkedList()
