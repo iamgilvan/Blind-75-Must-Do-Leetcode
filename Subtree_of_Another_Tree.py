@@ -8,7 +8,7 @@
 #         self.val = val
 #         self.left = left
 #         self.right = right
-#TC O(n^2)
+#TC O(s.t)
 #TS O(h)
 class Solution:
     def isSubtree(self, root: Optional[TreeNode], subRoot: Optional[TreeNode]) -> bool:
