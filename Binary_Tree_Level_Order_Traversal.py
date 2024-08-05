@@ -1,3 +1,4 @@
+from collections import deque
 import unittest
 
 class Node:
@@ -46,6 +47,27 @@ def binary_tree_order_level(root):
 
     traverse(root.root, 0)
     return result
+# O(n) time
+# O(h) space
+def binary_tree_order_level_iterative(root):
+    result = []
+    q = deque([root.root])
+    l = 0
+    while q:
+        result.append([])
+        for i in range(len(q)):
+            node = q.popleft()
+            if node:
+                result[l].append(node.val)
+                if node.left:
+                    q.append(node.left)
+                if node.right:
+                    q.append(node.right)
+            elif len(result[-1]) == 0:
+                del result[-1]
+        l += 1
+    return result
+
 class TestCase(unittest.TestCase):
     def test_binary_tree_order_level(self):
         t = BinaryTree()
@@ -55,8 +77,8 @@ class TestCase(unittest.TestCase):
         t.insert(15, n3)
         t.insert(7, n3)
 
-        order = binary_tree_order_level(t)
-        assert order == [[3],[9,20],[15,7]]
+        assert binary_tree_order_level(t) == [[3],[9,20],[15,7]]
+        assert binary_tree_order_level_iterative(t) == [[3],[9,20],[15,7]]
 
 if __name__ == "__main__":
     unittest.main()
