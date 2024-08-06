@@ -1,9 +1,8 @@
-from collections import defaultdict
-from queue import Queue
 import unittest
 import sys
-from collections import deque
-
+# Given an integer array nums, find the
+# subarray
+# with the largest sum, and return its sum.
 # Time complexity  O(n) | space complexity O(1).
 def maximum_subarray(array):
     max_so_far = -sys.maxsize - 1
@@ -18,6 +17,18 @@ def maximum_subarray(array):
 
     return max_so_far
 
+def maximum_subarray_ii(nums):
+    res = nums[0]
+    total = 0
+
+    for n in nums:
+        if total < 0:
+            total = 0
+        total += n
+        res = max(res, total)
+
+    return res
+
 class Test(unittest.TestCase):
     test_cases = [
         ([-2,1,-3,4,-1,2,1,-5,4],6),
@@ -27,7 +38,7 @@ class Test(unittest.TestCase):
         ([-1], -1),
     ]
     functions = [maximum_subarray]
-    def test_maximum_subarray(self):
+    def test_maximum_subarray_ii(self):
         for function in self.functions:
             for arr, expected in self.test_cases:
                 result = function(arr)
