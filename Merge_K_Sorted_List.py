@@ -1,3 +1,5 @@
+import heapq
+from typing import Optional
 import unittest
 
 class ListNode:
@@ -40,7 +42,23 @@ def mergeTwoList(l1, l2):
         current.next = l2
     return dummy.next
 
-
+#O(NLogK)
+def merge_k_list(nList)-> Optional[ListNode]:
+    if len(nList) == 0: return None
+    heap = []
+    for i in range(len(nList)):
+        if not nList[i]: continue
+        heapq.heappush(heap, (nList[i].val, i, nList[i]))
+    if len(heap) == 0: return None
+    dummy = ListNode(0)
+    d_node = dummy
+    while heap:
+        val, j , node = heapq.heappop(heap)
+        d_node.next = node
+        d_node = d_node.next
+        if node.next:
+            heapq.heappush(heap, (node.next.val, j, node.next))
+    return dummy.next
 
 class Test(unittest.TestCase):
     test_cases = [
@@ -49,7 +67,7 @@ class Test(unittest.TestCase):
         ([[]], []),
         ([[],[]], [])
     ]
-    functions = [mergeKSortedList]
+    functions = [mergeKSortedList, merge_k_list]
     def test_merge_k_sorted_list(self):
         for function in self.functions:
             for arrl, expected in self.test_cases:
