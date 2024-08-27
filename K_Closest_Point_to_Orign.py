@@ -26,7 +26,7 @@ class Test(unittest.TestCase):
         ([[3,3],[5,-1],[-2,4]], 2, [[3,3],[-2,4]]),
     ]
     functions = [k_Closest_Point_To_Origin]
-    def test_topkfrequentElements(self):
+    def test_k_Closest_Point_To_Origin(self):
         for function in self.functions:
             for points, k, expected in self.test_cases:
                 result = function(points, k)
