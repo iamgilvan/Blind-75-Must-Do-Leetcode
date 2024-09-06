@@ -1,5 +1,7 @@
 import unittest
 
+#TC  O(n)
+#SC O(1)
 def decode_ways(s):
     dp = { len(s) : 1}
     # loop from the end to the beginning
@@ -20,7 +22,7 @@ class Test(unittest.TestCase):
         ("06", 0),
     ]
     functions = [decode_ways,]
-    def test_group_anagram(self):
+    def test_decode_ways(self):
         for function in self.functions:
             for s, expected in self.test_cases:
                 result = function(s)
