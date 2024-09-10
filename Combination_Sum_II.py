@@ -26,12 +26,29 @@ def combination_sum(arr, target):
     backtrack([], 0, target)
     return result
 
+def combination_sum_ii(candidates, target):
+    res = []
+    candidates.sort()
+    def dfs(start, total, path):
+        if total == 0:
+            if path not in res:
+                res.append(path.copy())
+            return
+        if total < 0:
+            return
+        for i in range(start, len(candidates)):
+            path.append(candidates[i])
+            dfs(i + 1, total - candidates[i], path)
+            path.pop()
+    dfs(0, target, [])
+    return res
+
 class Test(unittest.TestCase):
     test_cases = [
         ([10,1,2,7,6,1,5], 8, [[1,1,6],[1,2,5],[1,7],[2,6]]),
         ([2,5,2,1,2], 5, [[1,2,2],[5]]),
     ]
-    functions = [combination_sum]
+    functions = [combination_sum, combination_sum_ii]
     def test_combination_sum_II(self):
         for function in self.functions:
             for arr, target, expected in self.test_cases:
