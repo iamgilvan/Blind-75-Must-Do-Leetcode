@@ -1,6 +1,6 @@
 import unittest
 
-#TC O(V + E), #EC O(V + E)  V = numCourses E = prerequisites
+#TC O(n), #EC O(n) 
 def numbers_of_connected(n, edges):
     par = [i for i in range(n)]
     rank = [1] * n
