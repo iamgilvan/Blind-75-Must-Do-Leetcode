@@ -12,7 +12,7 @@ def word_break(s, wordDict):
             if dp[start] and s[start:end] in wordDict:
                 dp[end] = True
                 break
-    return dp[n]
+    return dp[-1]
 
 class Test(unittest.TestCase):
     test_cases = [

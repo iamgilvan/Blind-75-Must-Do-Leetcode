@@ -1,5 +1,9 @@
 import unittest
 
+# Given a string s, return the longest palindromic substring in s.
+
+# SC:O(1)
+# Time Complexity O(n^2) 
 def Longest_palindromic_substring(s):
     r = 0
     pointer = len(s)

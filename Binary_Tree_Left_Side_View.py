@@ -33,29 +33,7 @@ class BinaryTree:
 
 # O(n) time
 # O(h) space
-def binary_tree_right_side_view(root):
-    temp_result = []
-    def bfs(node, h):
-        if not node:
-            return
-
-        if len(temp_result) <= h:
-            temp_result.append([])
-        temp_result[h].append(node.key)
-
-        bfs(node.left, h + 1)
-        bfs(node.right, h + 1)
-
-    bfs(root.root, 0)
-    res = []
-    for i in temp_result:
-        if len(i) > 1:
-            res.append(i[-1])
-        else:
-            res.append(i[0])
-    return res
-
-def binary_tree_right_side_view_ii(root):
+def binary_tree_left_side_view_ii(root):
     result = []
     def bfs(node, h):
         if not node:
@@ -64,8 +42,8 @@ def binary_tree_right_side_view_ii(root):
         if len(result) <= h:
             result.append(0)
 
-        bfs(node.left, h + 1)
         bfs(node.right, h + 1)
+        bfs(node.left, h + 1)
         result[h] = node.key
 
     bfs(root.root, 0)
@@ -78,7 +56,7 @@ def binary_tree_right_side_view_ii(root):
 #       \    \
 #        5     4
 class TestCase(unittest.TestCase):
-    def test_binary_tree_right_side_view(self):
+    def test_binary_tree_left_side_view(self):
         t = BinaryTree()
         n1 = t.insert(1, None)
         n2= t.insert(2, n1)
@@ -86,7 +64,6 @@ class TestCase(unittest.TestCase):
         t.insert(4, n3)
         t.insert(5, n2)
 
-        assert binary_tree_right_side_view(t) == [1,3,4]
-        assert binary_tree_right_side_view_ii(t) == [1,3,4]
+        assert binary_tree_left_side_view_ii(t) == [1,2,5]
 if __name__ == "__main__":
     unittest.main()
