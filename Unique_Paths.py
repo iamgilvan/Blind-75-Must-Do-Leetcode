@@ -29,12 +29,24 @@ def unique_path(rows, columns):
             matrix[row][col] = matrix[row][col - 1] + matrix[row - 1][col]
     return matrix[rows - 1][columns - 1]
 
+
+# Time complexity: O(2m+n)O(2m+n)
+# Space complexity: O(m+n)O(m+n)
+def uniquePaths(rows, columns):
+    def dfs(i, j):
+        if i == (rows - 1) and j == (columns - 1):
+            return 1
+        if i >= rows or j >= columns:
+            return 0
+        return dfs(i, j + 1) + dfs(i + 1, j)
+    return dfs(0, 0)
+
 class Test(unittest.TestCase):
     test_cases = [
         (3, 7, 28),
         (3, 2, 3)
     ]
-    functions = [unique_path]
+    functions = [unique_path, uniquePaths]
     def test_unique_path(self):
         for function in self.functions:
             for m, n, expected in self.test_cases:
