@@ -17,7 +17,9 @@ def maximum_subarray(array):
 
     return max_so_far
 
+# Time complexity  O(n) | space complexity O(1).
 def maximum_subarray_ii(nums):
+    # Kadane's Algorithm
     res = nums[0]
     total = 0
 
@@ -37,7 +39,7 @@ class Test(unittest.TestCase):
         ([5,4,-1,7,8], 23),
         ([-1], -1),
     ]
-    functions = [maximum_subarray]
+    functions = [maximum_subarray, maximum_subarray_ii]
     def test_maximum_subarray_ii(self):
         for function in self.functions:
             for arr, expected in self.test_cases:
