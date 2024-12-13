@@ -32,7 +32,7 @@ class Test(unittest.TestCase):
         ("{[]}", True)
     ]
     functions = [valid_parentheses]
-    def test_two_sum(self):
+    def test_valid_parentheses(self):
         for function in self.functions:
             for s, expected in self.test_cases:
                 result = function(s)
