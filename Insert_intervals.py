@@ -30,12 +30,30 @@ def insert_intervals(intervals, new_interval):
             output.append([start, end])
     return output
 
+#Time complexity O(n) : Space complexity O(n)
+def insert_intervals_ii(intervals, newInterval):
+    res = []
+
+    for i in range(len(intervals)):
+        if newInterval[1] < intervals[i][0]:
+            res.append(newInterval)
+            return res + intervals[i:]
+        elif newInterval[0] > intervals[i][1]:
+            res.append(intervals[i])
+        else:
+            newInterval = [
+                min(newInterval[0], intervals[i][0]),
+                max(newInterval[1], intervals[i][1]),
+            ]
+    res.append(newInterval)
+    return res
+
 class Test(unittest.TestCase):
     test_cases = [
         ([[1,3], [6,9]], [2,5], [[1,5],[6,9]]),
         ([[1,2],[3,5],[6,7],[8,10],[12,16]], [4,8], [[1,2],[3,10],[12,16]])
     ]
-    functions = [insert_intervals]
+    functions = [insert_intervals, insert_intervals_ii]
     def test_insert_intervals(self):
         for function in self.functions:
             for arr, new_interval, expected in self.test_cases:
