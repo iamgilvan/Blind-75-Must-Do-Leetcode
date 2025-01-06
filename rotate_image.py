@@ -4,6 +4,7 @@ from copy import deepcopy
 
 
 # O (NxN)
+# O (1)
 def rotate_matrix_algo(matrix):
     """rotates a matrix 90 degrees clockwise"""
     new_matrix = deepcopy(matrix)
@@ -15,6 +16,8 @@ def rotate_matrix_algo(matrix):
             curr_row += 1
     return new_matrix
 
+# O (N^2)
+# O (1)
 def rotate_matrix_inplace(matrix):
     """Rotates a matrix 90 degrees clockwise in-place."""
     # Primeiro, faça a transposição da matriz (linhas se tornam colunas)
@@ -27,7 +30,19 @@ def rotate_matrix_inplace(matrix):
         matrix[i].reverse()
 
     return matrix
-
+# O (N^2)
+# O (1)
+def rotate_matrix_inplace_ii(matrix):
+    """Rotates a matrix 90 degrees clockwise in-place."""
+    # Primeiro, faça a transposição da matriz (linhas se tornam colunas)
+    l, r = 0, len(matrix) - 1
+    while l < r:
+        for i in range (r - l):
+            top, bottom = l, r
+            matrix[top][l + i], matrix[bottom - i][l], matrix[bottom][r - i], matrix[top + i][r] = matrix[bottom - i][l], matrix[bottom][r - i], matrix[top + i][r], matrix[top][l + i]
+        r -= 1
+        l += 1
+    return matrix
 class Test(unittest.TestCase):
     test_cases = [
         (
@@ -62,14 +77,15 @@ class Test(unittest.TestCase):
 
     testable_functions = [
         rotate_matrix_algo,
-        rotate_matrix_inplace
+        rotate_matrix_inplace,
+        rotate_matrix_inplace_ii
     ]
 
     def test_rotate_matrix(self):
         for function in self.testable_functions:
             start = time.perf_counter()
             for matrix, expected in self.test_cases:
-                actual = function(matrix)
+                actual = function(deepcopy(matrix))
                 assert actual == expected, f"Failed {function.__name__} for: {[matrix]}"
             duration = time.perf_counter() - start
             print(f"{function.__name__} {duration * 1000:.1f}ms")
