@@ -59,7 +59,7 @@ class Test(unittest.TestCase):
         ([[1,1,1],[1,0,1],[1,1,1]], [[1,0,1],[0,0,0],[1,0,1]])
     ]
     functions = [set_zeros, set_zero_ii]
-    def test_climbing_stairs(self):
+    def test_set_matrix_zero(self):
         for function in self.functions:
             for matrix, expected in self.test_cases:
                 result = function(deepcopy(matrix))
