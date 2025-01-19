@@ -17,7 +17,7 @@ def singleNumber(nums: List[int]) -> int:
 def single_number(nums: List[int]) -> int:
     res = 0
     for num in nums:
-        res = num ^ res
+        res = num ^ res # XOR
     return res
 
 class Test(unittest.TestCase):
