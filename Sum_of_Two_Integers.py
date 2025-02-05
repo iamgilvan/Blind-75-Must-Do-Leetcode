@@ -2,7 +2,7 @@ from collections import Counter
 import heapq
 import unittest
 
-#TC O(nlogn)
+#TC O(1) | SC O(1)
 def getSum(a, b):
     # Máscara para limitar os números a 32 bits
     MASK = 0xFFFFFFFF

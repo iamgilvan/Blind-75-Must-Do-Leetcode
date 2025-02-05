@@ -1,6 +1,10 @@
 import unittest
 
-#TC: O(n)
+# Given a 32-bit unsigned integer n, reverse the bits of the binary representation of n and return the result.
+
+
+
+#TC: O(1)
 #EC: O(1)
 def reverse_bit(n):
     result = 0
