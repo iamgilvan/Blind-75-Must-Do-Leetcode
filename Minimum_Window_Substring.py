@@ -1,5 +1,12 @@
 import unittest
 
+# Given two strings s and t of lengths m and n respectively, return the minimum window 
+# substring
+#  of s such that every character in t (including duplicates) is included in the window. If there is no such substring, return the empty string "".
+
+# The testcases will be generated such that the answer is unique.
+#TC O(n) | SC O(m)
+# Where n is the length of the string s and m is the total number of unique characters in the strings t and s
 def minimum_window_substring(s, t):
     # simple check
     if t == "": return ""
