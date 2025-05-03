@@ -1,4 +1,3 @@
-from collections import deque
 import unittest
 
 # You are given an m x n matrix board containing letters 'X' and 'O', capture regions that are surrounded:

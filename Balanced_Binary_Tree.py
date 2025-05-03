@@ -1,5 +1,4 @@
-from collections import deque
-import unittest
+from typing import Optional
 
 # Given a binary tree, determine if it is
 # height-balanced.
