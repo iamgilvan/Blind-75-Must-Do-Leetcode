@@ -34,6 +34,7 @@ class Test(unittest.TestCase):
     test_cases = [
         ([1, 6, 2], [-1, 1, 1]),
         ([1, 5, 0, 3, 4, 5], [-1, 1, -1, 0, 3, 4]),
+        ([9, 6, 10, 9, 5], [-1, -1, 6, 6, -1])
     ]
     functions = [prev_smaller, prev_smaller_stack]
     def test_prev_smaller(self):
